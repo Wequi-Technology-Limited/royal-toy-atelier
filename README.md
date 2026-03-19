@@ -43,6 +43,10 @@ src/
     content.ts
   App.tsx
   main.tsx
+public/
+  favicon.svg
+  robots.txt
+vercel.json
 ```
 
 ## Features
@@ -53,6 +57,7 @@ src/
 - Responsive pages for Home, About, Collection, and Contact
 - WhatsApp-led inquiry flow
 - Easy future expansion toward ecommerce or CMS integration
+- Vercel-ready SPA routing with a dedicated deployment config
 
 ## Local development
 
@@ -73,6 +78,32 @@ src/
    npm run preview
    ```
 
+## Deploying to Vercel
+
+This project is ready for Vercel deployment as a Vite single-page app.
+
+### Option 1: Import the repository in Vercel
+
+- Create a new Vercel project from this repository.
+- Vercel should auto-detect the project as **Vite**.
+- The included `vercel.json` already sets:
+  - build command: `npm run build`
+  - output directory: `dist`
+  - SPA rewrite support for React Router routes like `/about`, `/collection`, and `/contact`
+
+### Option 2: Deploy with the Vercel CLI
+
+```bash
+npm install -g vercel
+vercel
+```
+
+For production deployment:
+
+```bash
+vercel --prod
+```
+
 ## Content maintenance
 
 All editable brand and page content is centralized under `src/data/`.
@@ -83,3 +114,9 @@ All editable brand and page content is centralized under `src/data/`.
 - Product catalog: `src/data/products.ts`
 - About page editorial copy: `src/data/about.ts`
 - Contact details and social links: `src/data/contact.ts`
+
+## Deployment notes
+
+- Client-side routes depend on the rewrite rule in `vercel.json`.
+- Static assets in `public/` are served directly by Vite and Vercel.
+- No backend, API routes, or database configuration is required.

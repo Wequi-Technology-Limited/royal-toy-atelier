@@ -36,3 +36,7 @@ src/
     content.ts
   App.tsx
   main.tsx
+public/
+  favicon.svg
+  robots.txt
+vercel.json
