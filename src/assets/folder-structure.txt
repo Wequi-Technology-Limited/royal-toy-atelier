@@ -1,0 +1,42 @@
+src/
+  assets/
+  components/
+    Button.tsx
+    Container.tsx
+    Footer.tsx
+    Layout.tsx
+    Navbar.tsx
+    PageHero.tsx
+    ProductCard.tsx
+    SectionHeading.tsx
+  data/
+    about.ts
+    brand.ts
+    contact.ts
+    footer.ts
+    home.ts
+    navigation.ts
+    products.ts
+  pages/
+    AboutPage.tsx
+    CollectionPage.tsx
+    ContactPage.tsx
+    HomePage.tsx
+  sections/
+    BrandIntroSection.tsx
+    CuratedExperienceSection.tsx
+    FeaturedCollectionSection.tsx
+    HeroSection.tsx
+    TestimonialSection.tsx
+    WhatsAppCTASection.tsx
+    WhyChooseUsSection.tsx
+  styles/
+    index.css
+  types/
+    content.ts
+  App.tsx
+  main.tsx
+public/
+  favicon.svg
+  robots.txt
+vercel.json
