@@ -20,6 +20,9 @@ export default {
           400: '#c5a96c',
         },
       },
+      opacity: {
+        68: '0.68',
+      },
       boxShadow: {
         soft: '0 20px 60px -24px rgba(76, 58, 34, 0.22)',
       },

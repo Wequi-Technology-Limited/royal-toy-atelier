@@ -22,9 +22,9 @@ export const contactDetails: ContactDetail[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: 'Instagram', href: '#' },
-  { label: 'Facebook', href: '#' },
-  { label: 'Pinterest', href: '#' },
+  { label: 'Instagram', href: 'https://www.facebook.com/profile.php?id=61588504080209' },
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61588504080209' },
+  { label: 'Pinterest', href: 'https://www.facebook.com/profile.php?id=61588504080209' },
 ];
 
 export const whatsappLink = whatsappHref;
