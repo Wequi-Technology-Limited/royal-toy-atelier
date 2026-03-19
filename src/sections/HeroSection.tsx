@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
+import { brand } from '@/data/brand';
 import { heroContent } from '@/data/home';
 
+const heroCoverFallback =
+  'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80';
+
 export const HeroSection = () => {
+  const [coverImageSrc, setCoverImageSrc] = useState(brand.coverImage);
+
   return (
     <section className="relative overflow-hidden section-space pt-16 sm:pt-20 lg:pt-24">
       <Container>
@@ -22,12 +29,21 @@ export const HeroSection = () => {
           <div className="surface-card relative overflow-hidden p-6 sm:p-8">
             <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-transparent via-gold-300 to-transparent" />
             <div className="grid gap-6 rounded-[1.5rem] bg-sand-100/70 p-6 sm:p-8">
-              <div className="aspect-[4/4.8] overflow-hidden rounded-[1.5rem]">
+              <div className="relative aspect-[4/4.8] overflow-hidden rounded-[1.5rem]">
                 <img
-                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80"
-                  alt="Luxury curated toys display"
+                  src={coverImageSrc}
+                  alt={brand.coverAlt}
                   className="h-full w-full object-cover"
+                  onError={() => {
+                    if (coverImageSrc !== heroCoverFallback) {
+                      setCoverImageSrc(heroCoverFallback);
+                    }
+                  }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/20 via-transparent to-white/15" />
+                <div className="absolute bottom-4 left-4 rounded-2xl border border-white/60 bg-white/80 px-4 py-2 backdrop-blur-sm">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-stone-950/72">{brand.name}</p>
+                </div>
               </div>
               <ul className="space-y-3">
                 {heroContent.highlights.map((highlight) => (

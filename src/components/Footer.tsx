@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '@/data/brand';
 import { footerContent } from '@/data/footer';
@@ -5,11 +6,23 @@ import { footerLinkGroups } from '@/data/navigation';
 import { socialLinks, whatsappLink } from '@/data/contact';
 
 export const Footer = () => {
+  const [isLogoMissing, setIsLogoMissing] = useState(false);
+
   return (
     <footer className="border-t border-stone-950/10 bg-white/70">
       <div className="container-shell grid gap-12 py-14 lg:grid-cols-[1.3fr_1fr_1fr]">
         <div className="max-w-sm">
-          <p className="font-display text-3xl text-stone-950">{brand.name}</p>
+          {isLogoMissing ? (
+            <p className="font-display text-3xl text-stone-950">{brand.name}</p>
+          ) : (
+            <img
+              src={brand.logoImage}
+              alt={brand.logoAlt}
+              className="h-20 w-auto max-w-[17rem] object-contain"
+              onError={() => setIsLogoMissing(true)}
+            />
+          )}
+          <p className="mt-3 text-xs uppercase tracking-luxury text-stone-950/55">{brand.location}</p>
           <p className="mt-4 text-sm leading-7 text-stone-950/68">{footerContent.note}</p>
           <a
             className="mt-6 inline-flex text-sm font-semibold tracking-[0.08em] text-stone-950 hover:text-gold-400"

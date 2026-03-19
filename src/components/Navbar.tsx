@@ -5,6 +5,7 @@ import { brand } from '@/data/brand';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogoMissing, setIsLogoMissing] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -15,12 +16,26 @@ export const Navbar = () => {
     <header className="sticky top-0 z-50 border-b border-stone-950/10 bg-sand-50/90 backdrop-blur-xl">
       <div className="container-shell flex items-center justify-between py-5">
         <Link className="flex flex-col" to="/" aria-label={brand.name}>
-          <span className="font-display text-2xl leading-none tracking-[0.08em] text-stone-950">
-            Royal Toy
-          </span>
-          <span className="mt-1 text-[0.68rem] uppercase tracking-luxury text-stone-950/50">
-            Atelier · Dhaka
-          </span>
+          {isLogoMissing ? (
+            <>
+              <span className="font-display text-2xl leading-none tracking-[0.08em] text-stone-950">
+                Royal Toy
+              </span>
+              <span className="mt-1 text-[0.68rem] uppercase tracking-luxury text-stone-950/50">
+                Atelier · Dhaka
+              </span>
+            </>
+          ) : (
+            <>
+              <img
+                src={brand.logoImage}
+                alt={brand.logoAlt}
+                className="h-12 w-auto max-w-[10.5rem] object-contain sm:h-14 sm:max-w-[12.5rem]"
+                onError={() => setIsLogoMissing(true)}
+              />
+              <span className="mt-1 text-[0.68rem] uppercase tracking-luxury text-stone-950/55">{brand.location}</span>
+            </>
+          )}
         </Link>
 
         <button
